@@ -1,68 +1,4 @@
 <!doctype html>
-
-<!--
-
-    Welcome to the light side of the source, young padawan.
-
-    One step closer to learn something interesting you are...
-
-                               ____                  
-                            _.' :  `._               
-                        .-.'`.  ;   .'`.-.           
-               __      / : ___\ ;  /___ ; \      __  
-             ,'_ ""--.:__;".-.";: :".-.":__;.--"" _`,
-             :' `.t""--.. '<@.`;_  ',@>` ..--""j.' `;
-                  `:-.._J '-.-'L__ `-- ' L_..-;'     
-                    "-.__ ;  .-"  "-.  : __.-"       
-                        L ' /.------.\ ' J           
-                         "-.   "--"   .-"            
-                        __.l"-:_JL_;-";.__           
-                     .-j/'.;  ;""""  / .'\"-.        
-                   .' /:`. "-.:     .-" .';  `.      
-                .-"  / ;  "-. "-..-" .-"  :    "-.   
-             .+"-.  : :      "-.__.-"      ;-._   \  
-             ; \  `.; ;                    : : "+. ; 
-             :  ;   ; ;                    : ;  : \: 
-             ;  :   ; :                    ;:   ;  : 
-            : \  ;  :  ;                  : ;  /  :: 
-            ;  ; :   ; :                  ;   :   ;: 
-            :  :  ;  :  ;                : :  ;  : ; 
-            ;\    :   ; :                ; ;     ; ; 
-            : `."-;   :  ;              :  ;    /  ; 
-             ;    -:   ; :              ;  : .-"   : 
-             :\     \  :  ;            : \.-"      : 
-              ;`.    \  ; :            ;.'_..--  / ; 
-              :  "-.  "-:  ;          :/."      .'  :
-               \         \ :          ;/  __        :
-                \       .-`.\        /t-""  ":-+.   :
-                 `.  .-"    `l    __/ /`. :  ; ; \  ;
-                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
-                    \ / .-"   /.     .'.' ;_:'    ;  
-                     :-""-.`./-.'     /    `.___.'   
-                           \ `t  ._  /               
-                            "-.t-._:'                
-
--->
-
-<!--
-    
-    So you'd like to know how to use impress.js?
-    
-    You've made the first, very important step -- you're reading the source code.
-    And that's how impress.js presentations are built -- with HTML and CSS code.
-    
-    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
-    And what is even more important, you need to be a designer, too, because there are no default
-    styles for impress.js presentations, there is no default or automatic layout for them.
-    
-    You need to design and build it by hand.
-    
-    So...
-    
-    Would you still like to know how to use impress.js?
-    
--->
-
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -73,40 +9,10 @@
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
-    <!--
-        
-        Impress.js doesn't depend on any external stylesheet. Script adds all styles it needs for
-        presentation to work.
-        
-        This style below contains styles only for demo presentation. Browse it to see how impress.js
-        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
-        you to use them directly in your presentation.
-        
-        Be creative, build your own. We don't really want all impress.js presentations to look the same,
-        do we?
-        
-        When creating your own presentation get rid of this file. Start from scratch, it's fun!
-        
-    -->
     <link href="css/impress-demo.css" rel="stylesheet" />
 </head>
 <body>
 
-<!--
-    
-    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
-    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
-    
-    It's worth to notice the `impress-not-supported` class. This class means, that browser doesn't
-    support features required by impress.js, so you can apply some fallback styles in your CSS.
-    It's not necessary to add it manually on this element. If the script detects that browser is not
-    good enough it will add this class, but keeping it in HTML means that users without JavaScript
-    will also get fallback styles.
-    
-    The class name on this element also depends on currently active presentation step. More details about
-    it can be found below, when `hint` element is being described.
-    
--->
 <div id="impress" class="impress-not-supported">
 
     <div class="fallback-message">
@@ -114,219 +20,654 @@
         <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
     </div>
 
-    <!--
-        
-        Here is where interesting thing start to happen.
-        
-        Each step of the presentation should be an element inside the `#impress` with a class name
-        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
-        the 'camera' shows them on each step of the presentation.
-        
-        Positioning information is passed through data attributes.
-        
-        In the example below we only specify x and y position of the step element with `data-x="-1000"`
-        and `data-y="-1500` attributes. This means that **the center** of the element (yes, the center)
-        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
-        
-        It will not be rotated or scaled.
-        
-    -->
-    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
-        <q>Aren't you just <b>bored</b> with all those slides-based presentations?</q>
+    <div class="step" data-x="-10000" data-y="-15000" data-scale="10">
+      <h1>Document Cloud</h1>
+      <h2>Lecture commentée des sources.</h2>
     </div>
 
-    <!--
-        
-        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
-        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
-        
-        So in the example below it'll be `step-2`.
-        
-        The hash part of the url when this step is active will be `#/step-2`.
-        
-        You can also use `#step-2` in a link, to point directly to this particular step.
-        
-        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
-        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
-        
-    -->
-    <div class="step slide" data-x="0" data-y="-1500">
-        <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+    <div class="step" data-x="0" data-y="-15000" data-scale="10">
+      <h1>Why Backbone is important to you?</h1>
     </div>
 
-    <div class="step slide" data-x="1000" data-y="-1500">
-        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+    <div class="step" data-x="0" data-y="0" data-scale="1000">
+      <p> Without a backbone you could not stand up at all.  </p>
+      <p> They also protect your spinal cord and nerves from damage and are a direct path to the brain.  </p>
     </div>
 
-    <!--
-        
-        This is an example of step element being scaled.
-        
-        Again, we use a `data-` attribute, this time it's `data-scale="4"`, so it means that this
-        element will be 4 times larger than the others.
-        From presentation and transitions point of view it means, that it will have to be scaled
-        down (4 times) to make it back to it's correct size.
-        
-    -->
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
+    <div class="step" data-x="1000000" data-y="0" data-scale="1000">
+      <h1>Why Document Cloud ?</h1>
+      <h2>
+        <img src="https://twimg0-a.akamaihd.net/profile_images/1185870726/gravatar.jpg" alt="" />
+        <div style="display:inline-block">
+          Jeremy Ashkenas<br />
+          <strong>@jashkenas</strong>
+        </div>
+      </h2>
+      <p> <a href="http://www.documentcloud.org/home">documentcloud.org</a> </p>
+      <p> <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js">https://github.com/documentcloud/documentcloud</a> </p>
     </div>
 
-    <!--
-        
-        This element introduces rotation.
-        
-        Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
-        element should be rotated by 90 degrees clockwise.
-        
-    -->
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It's a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+
+    <div class="step" data-x="2500000" data-y="0" data-scale="1000">
+      <h1>Structuration de Backbone</h1>
+      <ul>
+        <li>Vues</li>
+        <li>Objets</li>
+        <li>Evenements</li>
+        <li>Modèles et Collections</li>
+        <li>Structuration du code</li>
+      </ul>
     </div>
 
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+    <div class="step slide" data-x="2300000" data-y="-90000" data-scale="50">
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js">Source</a>
+      <pre style="font-size: 0.4em; line-height: 20px;"><code>
+      $(function() {
+        window.HomePage = Backbone.View.extend({
+
+          FAVORITES_URL : '//twitter.com/favorites/documentcloud.json?callback=?',
+
+          el : document.body,
+
+          events : {
+            'click #login_button': 'login'
+          },
+
+          initialize : function() {
+            //...
+          },
+
+          login : function() {
+            this.$('#login_form').submit();
+          }
+        });
+
+        window.homepage = new HomePage();
+      });
+      </code></pre>
     </div>
 
-    <!--
-        
-        And now it gets really exiting! We move into third dimension!
-        
-        Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
-        `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
-        positioned far away from us (by 3000px).
-        
-    -->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
+
+
+    <div class="step slide" data-x="2350000" data-y="-90000" data-scale="50">
+      <h1>Découper le DOM en plusieurs vues</h1>
+      <p> Par défaut non attaché au DOM.  </p>
+
+      <p> Mais on peut l'attaché à l'initialisation </p>
+      <pre>
+        <code>
+          el : document.body
+
+          el : '#help ul'
+        </code>
+      </pre>
     </div>
 
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+    <div class="step slide" data-x="2400000" data-y="-90000" data-scale="50">
+      <h1>Découper le DOM en plusieurs vues</h1>
+      <p>Ou plus tard</p>
+      <pre><code style="font-size: 0.6em">
+this.panel.add('search_box', dc.app.searchBox.render().el);
+this.panel.add('pagination', dc.app.paginator.el);
+this.panel.add('search_toolbar', dc.app.toolbar.render().el);
+this.panel.add('document_list', this.documentList.render().el);
+this.sidebar.add('entities', this.entityList.render().el);
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/workspace.js#L45">Source</a>
     </div>
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+    <div class="step" data-x="2400000" data-y="-90000" data-scale="1">
+      <img src="DocumentCloud.png" alt="" height="600"/>
     </div>
 
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+    <div class="step slide" data-x="2450000" data-y="-90000" data-scale="50">
+      <h1>Et s'y tenir</h1>
+      <pre style="font-size: 0.6em; line-height: 20px;"><code>
+  _renderReviewers : function() {
+    // ...
+    this.$('.account_list_content tr:not(.reviewer_management)').remove();
+    this.$('.account_list_content').prepend(views);
+    this.$('.document_reviewers_empty').toggle(!_.keys(this.renderedAccounts).length);
+    this._cancelAddReviewer();
+  },
+
+  _setPlaceholders : function() {
+    this.$('input[name=first_name], input[name=last_name]').placeholder();
+    // ...
+  },
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/workspace.js#L45">Source</a>
     </div>
 
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
+    <div class="step slide" data-x="2500000" data-y="-90000" data-scale="50">
+      <h1>Uniformiser les interactions avec le DOM</h1>
+      <pre><code style="font-size: 0.6em">
+    events : {
+      'keydown #search_box':   'maybeSearch',
+      'search #search_box':    'search',
+      'focus #search_box':     'addFocus',
+      'blur #search_box':      'removeFocus',
+      'click .cancel_search':  'cancelSearch',
+      'click #login_button':   'login'
+    },
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js#L9">Source</a>
     </div>
 
-    <!--
-        
-        And the last one shows full power and flexibility of impress.js.
-        
-        You can not only position element in 3D, but also rotate it around any axis.
-        So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
-        10 degrees (clockwise) around Y axis.
-        
-        You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
-        as `data-rotate` (these two are basically aliases).
-        
-    -->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
+    <div class="step slide" data-x="2550000" data-y="-90000" data-scale="50">
+      <h1>Uniformiser la manipulation du DOM</h1>
+      <pre style="font-size: 0.4em; line-height: 20px;"><code>
+dc.ui.Menu = Backbone.View.extend({
+
+  render : function() {
+    $(this.el).html(JST['common/menubutton']({label : this.options.label}));
+    this._label = this.$('.label');
+    return this;
+  },
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/common/menu.js">Source</a>
     </div>
 
-    <!--
-        
-        So to make a summary of all the possible attributes used to position presentation steps, we have:
-        
-        * `data-x`, `data-y`, `data-z` -- they define the position of **the center** of step element on
-            the canvas in pixels; their default value is 0;
-        * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` -- they define the rotation of
-            the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
-            are exactly the same;
-        * `data-scale` -- defines the scale of step element; default value is 1
-        
-    -->
-    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    <div class="step slide" data-x="2600000" data-y="-90000" data-scale="50">
+      <h1>Une machine à état non persistée</h1>
+      <pre style="font-size: 0.4em; line-height: 20px;"><code>
+./ui/common/menu.js:    this.setMode('is', 'open');
+./ui/common/menu.js:    this.setMode('not', 'open');
+./ui/common/menu.js:    this.setMode('is', 'enabled');
+./ui/common/menu.js:    this.setMode('not', 'enabled');
+./ui/common/menu.js:    this.setMode('is', 'active');
+./ui/common/menu.js:    this.setMode('not', 'active');
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/common/menu.js">Source</a>
+      <pre style="font-size: 0.4em; line-height: 20px;"><code>
+  // Makes the view enter a mode. Modes have both a 'mode' and a 'group',
+  // and are mutually exclusive with any other modes in the same group.
+  // Setting will update the view's modes hash, as well as set an HTML class
+  // of *[mode]_[group]* on the view's element. Convenient way to swap styles
+  // and behavior.
+  Backbone.View.prototype.setMode = function(mode, group) {
+    this.modes || (this.modes = {});
+    if (this.modes[group] === mode) return;
+    $(this.el).setMode(mode, group);
+    this.modes[group] = mode;
+  };
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/lib/backbone_extensions.js">Source du Plugin Backbone</a>
     </div>
 
+    <div class="step" data-x="2600000" data-y="0" data-scale="1000">
+    </div>
+
+    <div class="step slide" data-x="2330000" data-y="-20000" data-scale="50">
+      <h1>Pour utiliser le sucre syntaxique de Backbone.</h1>
+      <pre style="font-size: 0.8em; line-height: 25px;"> <code>
+  window.HomePage = Backbone.View.extend({
+
+    events : {
+      'keydown #search_box':   'maybeSearch',
+      'search #search_box':    'search',
+      'focus #search_box':     'addFocus',
+      'blur #search_box':      'removeFocus',
+      'click .cancel_search':  'cancelSearch',
+      'click #login_button':   'login'
+    },
+
+    login : function() { /* ... */ },
+    search : function() { /* ... */ },
+    cancelSearch : function() { /* ... */ },
+    maybeSearch : function() { /* ... */ },
+    addFocus : function() { /* ... */ },
+    removeFocus : function() { /* ... */ }
+  });
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2380000" data-y="-20000" data-scale="50">
+      <h1>Initialize</h1>
+      <pre><code style="font-size: 0.6em">
+    initialize : function() {
+      dc.ui.notifier      = new dc.ui.Notifier();
+      this.box            = $('#search_box');
+      this.emailInput     = $('#account_email');
+      this.passwordInput  = $('#account_password');
+      _.invoke([this.box, this.emailInput, this.passwordInput], 'placeholder');
+      $(_.bind(this.loadTweets, this));
+    },
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js#L18">Source</a>
+    </div>
+
+    <div class="step" data-x="2366000" data-y="-18350" data-scale="3"> </div>
+
+    <div class="step" data-x="2381000" data-y="-17500" data-scale="25"> </div>
+
+    <div class="step slide" data-x="2430000" data-y="-20000" data-scale="50">
+      <h1>Constantes</h1>
+      <p>En haut en majuscule, facile à repérer.</p>
+
+      <pre style="font-size: 0.4em; line-height: 20px;"><code>
+dc.controllers.Searcher = Backbone.Router.extend({
+
+  // Error messages to display when your search returns no results.
+  NO_RESULTS : {
+    project   : "This project does not contain any documents.",
+    account   : "This account does not have any documents.",
+    group     : "This organization does not have any documents.",
+    related   : "There are no documents related to this document.",
+    published : "This account does not have any published documents.",
+    annotated : "There are no annotated documents.",
+    search    : "Your search did not match any documents.",
+    all       : "There are no documents."
+  },
+
+  PAGE_MATCHER  : (/\/p(\d+)$/),
+
+  DOCUMENTS_URL : '/search/documents.json',
+
+  FACETS_URL    : '/search/facets.json',
+      </code></pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/searcher.js">Source</a>
+    </div>
+    <div class="step slide" data-x="2480000" data-y="-20000" data-scale="50">
+      <h1>Un objet pour découper notre code</h1>
+      <pre style="font-size: 0.4em; line-height: 25px;"> <code>
+  initialize : function() {
+    this.createSubViews();
+    this.renderSubViews();
+    dc.app.searcher = new dc.controllers.Searcher;
+  },
+
+  createSubViews : function() {
+    this.sidebar      = new dc.ui.Sidebar();
+    this.panel        = new dc.ui.Panel();
+    this.documentList = new dc.ui.DocumentList();
+    this.entityList   = new dc.ui.EntityList();
+    // ...
+  },
+
+  renderSubViews : function() {
+    var content   = this.$('#content');
+    content.append(this.sidebar.render().el);
+    content.append(this.panel.render().el);
+    this.panel.add('document_list', this.documentList.render().el);
+    this.sidebar.add('entities', this.entityList.render().el);
+    // ...
+
+    </code> </pre>
+    </div>
+
+    <div class="step slide" data-x="2530000" data-y="-20000" data-scale="50">
+      <h1>Pour partager un état</h1>
+      <pre style="font-size: 0.4em; line-height: 25px;"> <code>
+  initialize : function() {
+    _.bindAll(this, '_loadFacetResults');
+  }
+
+  loadFacet : function(facet) {
+    dc.ui.spinner.show();
+    this.currentSearch = $.get(this.FACETS_URL, {q : this.searchBox.value(), facet : facet}, this._loadFacetResults, 'json');
+  },
+
+  _loadFacetResults : function(resp) {
+    dc.app.workspace.entityList.mergeFacets(resp.facets, 500, resp.query.total);
+    dc.ui.spinner.hide();
+    this.currentSearch = null;
+  }
+
+  search : function(query, pageNumber, callback) {
+    dc.ui.spinner.show();
+    dc.app.navigation.open('search');
+    if (this.currentSearch) this.currentSearch.abort();
+    // ...
+
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/searcher.js#L210">Source</a>
+    </div>
+
+
+
+    <div class="step slide" data-x="2580000" data-y="-20000" data-scale="50">
+      <h1>Pour faire des factories</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.ui.Dialog = Backbone.View.extend({
+
+  options : {
+    title       : "Untitled Dialog",
+    text        : null,
+    information : null,
+    description : null,
+    choices     : null,
+    password    : false,
+    editor      : false,
+    draggable   : true
+  },
+
+  // ...
+}
+
+_.extend(dc.ui.Dialog, {
+
+  alert : function(text, options) {
+    return new dc.ui.Dialog(_.extend({
+      mode      : 'alert',
+      title     : null,
+      text      : text
+    }, options)).render();
+  },
+  // ...
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/common/dialog.js#L141">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2630000" data-y="-20000" data-scale="50">
+      <h1>Pour créer des classes filles</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.ui.ProjectDialog = dc.ui.Dialog.extend({
+
+  constructor : function(options) {
+    this.model = options.model;
+    dc.ui.Dialog.call(this, {
+      mode        : 'custom',
+      title       : 'Edit Project'
+    });
+  },
+
+  render : function(noHide) {
+    if (!noHide) $(this.el).hide();
+    dc.ui.Dialog.prototype.render.call(this, {editor : true, information : this.model.statistics()});
+    // ...
+  }
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/organizer/project_dialog.js">Source</a>
+    </div>
+
+    <div class="step" data-x="2600000" data-y="0" data-scale="1000">
+    </div>
+
+    <div class="step slide" data-x="2450000" data-y="50000" data-scale="50">
+      <h1>Pour découpler son code</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+$ grep -R "tab:" .
+./ui/workspace/navigation.js:    if (!(silent === true)) this.trigger('tab:' + name);
+
+./ui/workspace/navigation.js:    this.bind('tab:entities', _.bind(function() {
+./ui/workspace/help.js:          dc.app.navigation.bind('tab:help',  _.bind(this.openHelpTab, this));
+./ui/documents/upload_dialog.js: dc.app.navigation.bind('tab:documents', _.bind(function(){
+./app/searcher.js:               dc.app.navigation.bind('tab:search', this.loadDefault);
+
+      </code> </pre>
+    </div>
+
+    <div class="step" data-x="2600000" data-y="0" data-scale="1000">
+    </div>
+
+    <div class="step slide" data-x="2650000" data-y="125000" data-scale="50">
+      <h1>Un modèle/collection riche en code métier</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.model.Document = Backbone.Model.extend({
+
+  publishAtDate : function() {
+    var date = this.get('publish_at');
+    return date && DateUtils.parseRfc(date);
+  },
+
+  formattedPublishAtDate : function() {
+    var date = this.publishAtDate();
+    return date && (this.formatDay(date) + ' at ' + this.formatTime(date));
+  },
+
+// ...
+
+dc.model.DocumentSet = Backbone.Collection.extend({
+
+  model    : dc.model.Document,
+
+  downloadSelectedFullText : function() {
+    if (this.selectedCount <= 1) return this.selected()[0].openText();
+    dc.app.download('/download/' + this.selectedIds().join('/') + '/document_text.zip');
+  },
+
+      </code> </pre>
+<a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/model/documents.js#L91">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2700000" data-y="125000" data-scale="50">
+      <h1>Un modèle pour synchroniser l'état des ressources</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+  // Fetch all of the documents page mentions for a given search query.
+  fetchMentions : function(query) {
+    $.getJSON(this.url() + '/mentions', {q: query}, _.bind(function(resp) {
+      this.set(resp);
+    }, this));
+  },
+
+  // Tell the server to reprocess the text for this document.
+  reprocessText : function(forceOCR) {
+    var params = {};
+    if (forceOCR) params.ocr = true;
+    $.ajax({
+      url      : this.url() + '/reprocess_text',
+      data     : params,
+      type     : 'POST',
+      dataType : 'json',
+      success  : _.bind(function(resp) {
+        this.set({access : dc.access.PENDING});
+    }, this)});
+  },
+      </code> </pre>
+<a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/model/documents.js#L91">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2750000" data-y="125000" data-scale="50">
+      <h1>Ce qui entraine une réactualisation des vues</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.ui.Document = Backbone.View.extend({
+
+  constructor : function(options) {
+    // ...
+    this.model.bind('change', this._onDocumentChange);
+    this.model.bind('change:selected', this._setSelected);
+    this.model.bind('focus', this.focus);
+    this.model.bind('view:pages', this.viewPages);
+    this.model.bind('notes:hide', this.hideNotes);
+    this.model.notes.bind('add', this._addNote);
+    this.model.notes.bind('reset', this._renderNotes);
+    this.model.entities.bind('load', this._renderEntities);
+    this.model.pageEntities.bind('reset', this._renderPages);
+  }
+
+  _onDocumentChange : function() {
+    if (this.model.hasChanged('selected')) return;
+    this.render();
+  },
+
+  _setSelected : function() {
+    var sel = this.model.get('selected');
+    this.setMode(sel ? 'is' : 'not', 'selected');
+  }
+      </code> </pre>
+    </div>
+
+    <div class="step slide" data-x="2800000" data-y="125000" data-scale="50">
+      <h1>Un model constitué de sous-model</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.model.Document = Backbone.Model.extend({
+
+  constructor : function(attrs, options) {
+    // ...
+    this.notes = new dc.model.NoteSet();
+    this.notes.url = function() {
+      return '/documents/' + id + '/annotations';
+    };
+    if (this.get('annotations')) this.notes.reset(this.get('annotations'));
+      </code> </pre>
+    </div>
+
+    <div class="step slide" data-x="2850000" data-y="125000" data-scale="50">
+      <h1>Surtout du READ</h1>
+    </div>
+
+    <div class="step" data-x="2600000" data-y="0" data-scale="1000">
+    </div>
+
+    <div class="step slide" data-x="2650000" data-y="195000" data-scale="50">
+      <h1>La structure des fichiers</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+├── application.js
+├── app
+├── lib
+├── model
+├── ui
+│   ├── accounts
+│   ├── common
+│   ├── documents
+│   ├── metadata
+│   ├── organizer
+│   ├── search
+│   └── workspace
+└── vendor
+      </code> </pre>
+    </div>
+
+    <div class="step slide" data-x="2700000" data-y="195000" data-scale="50">
+      <h1>Un namespace commun</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+(function() {
+  window.dc = {};
+  dc.controllers = {};
+  dc.model = {};
+  dc.app = {};
+  dc.ui = {};
+})();
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/application.js">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2750000" data-y="195000" data-scale="50">
+      <h1>Augmenté par chaque fichier</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.controllers.Workspace = Backbone.Router.extend({
+  // ...
+});
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/workspace.js#L24">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2800000" data-y="195000" data-scale="50">
+      <h1>Contenant les classes et les instances</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+  createSubViews : function() {
+    dc.app.paginator  = new dc.ui.Paginator();
+    dc.app.navigation = new dc.ui.Navigation();
+    dc.app.toolbar    = new dc.ui.Toolbar();
+    dc.app.organizer  = new dc.ui.Organizer();
+    dc.ui.notifier    = new dc.ui.Notifier();
+    dc.ui.tooltip     = new dc.ui.Tooltip();
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/workspace.js#L24">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2850000" data-y="195000" data-scale="50">
+      <h1>Initialisé à un seul endroit</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.controllers.Workspace = Backbone.Router.extend({
+  // ...
+  createSubViews : function() {
+    dc.app.paginator  = new dc.ui.Paginator();
+    dc.app.navigation = new dc.ui.Navigation();
+    dc.app.toolbar    = new dc.ui.Toolbar();
+    dc.app.organizer  = new dc.ui.Organizer();
+    dc.ui.notifier    = new dc.ui.Notifier();
+    dc.ui.tooltip     = new dc.ui.Tooltip();
+    dc.app.searchBox  = VS.init(this.searchOptions());
+    this.sidebar      = new dc.ui.Sidebar();
+    this.panel        = new dc.ui.Panel();
+    this.documentList = new dc.ui.DocumentList();
+    this.entityList   = new dc.ui.EntityList();
+
+    if (!dc.account) return;
+
+    dc.app.uploader   = new dc.ui.UploadDialog();
+    dc.app.accounts   = new dc.ui.AccountDialog();
+    this.accountBadge = new dc.ui.AccountView({model : Accounts.current(), kind : 'badge'});
+  },
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/workspace.js#L24">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2900000" data-y="195000" data-scale="50">
+      <h1>Afin d'intéragir plus simplement entre module.</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.ui.Document = Backbone.View.extend({
+
+  // ...
+
+  searchAccount : function() {
+    dc.app.searcher.addToSearch('account', this.model.get('account_slug'));
+  },
+
+  searchOrganization : function() {
+    dc.app.searcher.addToSearch('group', this.model.get('organization_slug'));
+  },
+
+  searchSource : function() {
+    dc.app.searcher.addToSearch('source', this.model.get('source').replace(/"/g, '\\"'));
+  },
+
+  searchData : function(e) {
+    var el    = $(e.currentTarget);
+    var key   = el.find('.data_key').text().replace(/:$/, '');
+    var value = el.find('.data_value').text();
+    dc.app.searcher.toggleSearch(key, value);
+  },
+});
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/documents/document.js">Source</a>
+    </div>
+
+    <div class="step slide" data-x="2950000" data-y="195000" data-scale="50">
+      <h1>Des templates compilés</h1>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+dc.ui.Menu = Backbone.View.extend({
+
+  constructor : function(options) {
+    this.content        = $(JST['common/menu'](this.options));
+  },
+
+  render : function() {
+    $(this.el).html(JST['common/menubutton']({label : this.options.label}));
+    this._label = this.$('.label');
+    $(document.body).append(this.content);
+    return this;
+  },
+      </code> </pre>
+      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div class=&quot;label&quot;&gt;
+    &lt;%= label %&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;corner&quot;&gt;&lt;/div&gt;
+      </code> </pre>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/common/menu.js">Source JS</a>
+      <a href="https://github.com/lyonjs/documentcloud/blob/master/app/views/jst/workspace/common/menubutton.jst">JST</a>
+      <br /> 
+      <a href="http://documentcloud.github.com/jammit/#jst">From Jammit</a>
+      <br /> 
+      <a href="http://ricostacruz.com/backbone-patterns/#jst_templates">Backbone patterns</a>
+    </div>
+
+    <div class="step" data-x="2600000" data-y="0" data-scale="1000">
+    </div>
+
+    <div class="step" data-x="4500000" data-y="0" data-scale="1000" data-z="-100000" data-rotate-x="20" data-rotate-y="10">
+      <h1>Des questions ?</h1>
+    </div>
 </div>
 
-<!--
-    
-    Hint is not related to impress.js in any way.
-    
-    But it can show you how to use impress.js features in creative way.
-    
-    When the presentation step is shown (selected) it's element get's the class of "active" and `#impress` root
-    element get's the class based on active step id `step-ID` (where ID is the step id)... It probably is not
-    so clear because of all these IDs in here, so for example when the first step (the one with id of `bored`)
-    is active, `#impress` element get a class of `step-bored`.
-    
-    This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation.
-    
--->
-<div class="hint">
-    <p>Use a spacebar or arrow keys to navigate</p>
-</div>
 
-
-<!--
-    
-    Last, but not least.
-    
-    To make all described above really work, you need to include impress.js in the page.
-    And you should do it in the end of your document. Not only because it's a good practice, but also
-    because I was lazy, haven't wrapped the code in any kind of "DOM ready" event, so it will not work
-    if included too early in the source ;)
-    
--->
 <script src="js/impress.js"></script>
 
 </body>
 </html>
-
-<!--
-    
-    Now you know more or less everything you need to build your first impress.js presentation, but before
-    you start...
-    
-    Oh, you've already cloned the code from GitHub?
-    
-    You have it open in text editor?
-    
-    Stop right there!
-    
-    That's not how you create awesome presentations. This is only a code. Implementation of the idea that
-    first needs to grow in your mind.
-    
-    So if you want to build great presentation take a pencil and piece of paper. And turn off the computer.
-    
-    Sketch, draw and write. Brainstorm your ideas on a paper. Try to build a mind-map of what you'd like
-    to present. It will get you closer and closer to the layout you'll build later with impress.js.
-    
-    Get back to the code only when you have your presentation ready on a paper. It doesn't make sense to do
-    it earlier, because you'll only waste your time fighting with positioning of useless points.
-    
-    If you think I'm crazy, please put your hands on a book called "Presentation Zen". It's all about 
-    creating awesome and engaging presentations.
-    
-    Think about it. 'Cause impress.js may not help you, if you have nothing interesting to say.
-    
--->
-
-<!--
-    
-    Are you still reading this?
-    
-    For real?
-    
-    I'm impressed! Feel free to let me know that you got that far (I'm @bartaz on Twitter), 'cause I'd like
-    to congratulate you personally :)
-    
--->
-
