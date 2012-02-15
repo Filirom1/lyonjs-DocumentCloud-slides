@@ -20,22 +20,23 @@
         <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
     </div>
 
-    <div class="step" data-x="-10000" data-y="-15000" data-scale="10">
+    <div id="intro" class="step" data-x="990000" data-y="-1000000" data-scale="10" data-rotate="-90">
       <h1>Document Cloud</h1>
-      <h2>Lecture commentée des sources.</h2>
+      <h2>Lecture commentée* des sources</h2>
+	  <small>* troll</small>
     </div>
 
-    <div class="step" data-x="0" data-y="-15000" data-scale="10">
-      <h1>Why Backbone is important to you?</h1>
+    <div class="step" data-x="1000000" data-y="-1000000" data-scale="10" >
+      <h1>Pourquoi Backbone est important ?</h1>
     </div>
 
-    <div class="step" data-x="0" data-y="0" data-scale="1000">
-      <p> Without a backbone you could not stand up at all.  </p>
-      <p> They also protect your spinal cord and nerves from damage and are a direct path to the brain.  </p>
+    <div class="step" data-x="1000000" data-y="-1000000" data-scale="1000">
+      <p>"Without a backbone you could not stand up at all.  </p>
+      <p> They also protect your spinal cord and nerves from damage and are a direct path to the brain."</p>
     </div>
 
     <div class="step" data-x="1000000" data-y="0" data-scale="1000">
-      <h1>Why Document Cloud ?</h1>
+      <h1>Pourquoi DocumentCloud ?</h1>
       <h2>
         <img src="https://twimg0-a.akamaihd.net/profile_images/1185870726/gravatar.jpg" alt="" />
         <div style="display:inline-block">
@@ -61,29 +62,22 @@
 
     <div class="step slide" data-x="2300000" data-y="-90000" data-scale="50">
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js">Source</a>
-      <pre style="font-size: 0.4em; line-height: 20px;"><code>
-      $(function() {
-        window.HomePage = Backbone.View.extend({
+      <pre><code>
+$(function() {
 
-          FAVORITES_URL : '//twitter.com/favorites/documentcloud.json?callback=?',
+  window.HomePage = Backbone.View.extend({
 
-          el : document.body,
+    el : document.body,
 
-          events : {
-            'click #login_button': 'login'
-          },
+    events : {
+      'click #login_button': 'login'
+    },
 
-          initialize : function() {
-            //...
-          },
+    initialize : function() { /* */},
 
-          login : function() {
-            this.$('#login_form').submit();
-          }
-        });
+    login : function() { /* */}
+  });
 
-        window.homepage = new HomePage();
-      });
       </code></pre>
     </div>
 
@@ -106,12 +100,21 @@
     <div class="step slide" data-x="2400000" data-y="-90000" data-scale="50">
       <h1>Découper le DOM en plusieurs vues</h1>
       <p>Ou plus tard</p>
-      <pre><code style="font-size: 0.6em">
-this.panel.add('search_box', dc.app.searchBox.render().el);
-this.panel.add('pagination', dc.app.paginator.el);
-this.panel.add('search_toolbar', dc.app.toolbar.render().el);
-this.panel.add('document_list', this.documentList.render().el);
-this.sidebar.add('entities', this.entityList.render().el);
+      <pre><code>
+this.panel.add('search_box', 
+  dc.app.searchBox.render().el);
+
+this.panel.add('pagination', 
+  dc.app.paginator.el);
+
+this.panel.add('search_toolbar', 
+  dc.app.toolbar.render().el);
+
+this.panel.add('document_list', 
+  this.documentList.render().el);
+
+this.sidebar.add('entities', 
+  this.entityList.render().el);
       </code></pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/workspace.js#L45">Source</a>
     </div>
@@ -119,80 +122,47 @@ this.sidebar.add('entities', this.entityList.render().el);
     <div class="step" data-x="2400000" data-y="-90000" data-scale="1">
       <img src="DocumentCloud.png" alt="" height="600"/>
     </div>
-
+    
+    <div class="step slide" data-x="2400000" data-y="-90000" data-scale="50">
+    </div>
+    
     <div class="step slide" data-x="2450000" data-y="-90000" data-scale="50">
       <h1>Et s'y tenir</h1>
-      <pre style="font-size: 0.6em; line-height: 20px;"><code>
-  _renderReviewers : function() {
-    // ...
-    this.$('.account_list_content tr:not(.reviewer_management)').remove();
-    this.$('.account_list_content').prepend(views);
-    this.$('.document_reviewers_empty').toggle(!_.keys(this.renderedAccounts).length);
-    this._cancelAddReviewer();
-  },
+      <pre><code>
 
-  _setPlaceholders : function() {
-    this.$('input[name=first_name], input[name=last_name]').placeholder();
-    // ...
-  },
+    this.$('.account_list_content')
+        .prepend(views);
+        
       </code></pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/workspace.js#L45">Source</a>
     </div>
 
     <div class="step slide" data-x="2500000" data-y="-90000" data-scale="50">
-      <h1>Uniformiser les interactions avec le DOM</h1>
-      <pre><code style="font-size: 0.6em">
-    events : {
-      'keydown #search_box':   'maybeSearch',
-      'search #search_box':    'search',
-      'focus #search_box':     'addFocus',
-      'blur #search_box':      'removeFocus',
-      'click .cancel_search':  'cancelSearch',
-      'click #login_button':   'login'
-    },
+      <h1>Uniformiser les interactions avec l'utilisateur</h1>
+      <pre><code>
+events : {
+  'keydown #search_box':   'maybeSearch',
+  'search #search_box':    'search',
+  'focus #search_box':     'addFocus',
+  'blur #search_box':      'removeFocus',
+  'click .cancel_search':  'cancelSearch',
+  'click #login_button':   'login'
+},
       </code></pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js#L9">Source</a>
     </div>
 
     <div class="step slide" data-x="2550000" data-y="-90000" data-scale="50">
-      <h1>Uniformiser la manipulation du DOM</h1>
-      <pre style="font-size: 0.4em; line-height: 20px;"><code>
-dc.ui.Menu = Backbone.View.extend({
-
-  render : function() {
-    $(this.el).html(JST['common/menubutton']({label : this.options.label}));
-    this._label = this.$('.label');
-    return this;
-  },
+      <h1>Une machine à état non persisté</h1>
+      <pre><code>
+this.setMode('is', 'open');
+this.setMode('not', 'open');
+this.setMode('is', 'enabled');
+this.setMode('not', 'enabled');
+this.setMode('is', 'active');
+this.setMode('not', 'active');
       </code></pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/common/menu.js">Source</a>
-    </div>
-
-    <div class="step slide" data-x="2600000" data-y="-90000" data-scale="50">
-      <h1>Une machine à état non persistée</h1>
-      <pre style="font-size: 0.4em; line-height: 20px;"><code>
-./ui/common/menu.js:    this.setMode('is', 'open');
-./ui/common/menu.js:    this.setMode('not', 'open');
-./ui/common/menu.js:    this.setMode('is', 'enabled');
-./ui/common/menu.js:    this.setMode('not', 'enabled');
-./ui/common/menu.js:    this.setMode('is', 'active');
-./ui/common/menu.js:    this.setMode('not', 'active');
-      </code></pre>
-      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/common/menu.js">Source</a>
-      <pre style="font-size: 0.4em; line-height: 20px;"><code>
-  // Makes the view enter a mode. Modes have both a 'mode' and a 'group',
-  // and are mutually exclusive with any other modes in the same group.
-  // Setting will update the view's modes hash, as well as set an HTML class
-  // of *[mode]_[group]* on the view's element. Convenient way to swap styles
-  // and behavior.
-  Backbone.View.prototype.setMode = function(mode, group) {
-    this.modes || (this.modes = {});
-    if (this.modes[group] === mode) return;
-    $(this.el).setMode(mode, group);
-    this.modes[group] = mode;
-  };
-      </code></pre>
-      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/lib/backbone_extensions.js">Source du Plugin Backbone</a>
     </div>
 
     <div class="step" data-x="2600000" data-y="0" data-scale="1000">
@@ -200,78 +170,45 @@ dc.ui.Menu = Backbone.View.extend({
 
     <div class="step slide" data-x="2330000" data-y="-20000" data-scale="50">
       <h1>Pour utiliser le sucre syntaxique de Backbone.</h1>
-      <pre style="font-size: 0.8em; line-height: 25px;"> <code>
-  window.HomePage = Backbone.View.extend({
+      <pre> <code>
+window.HomePage = Backbone.View.extend({
 
-    events : {
-      'keydown #search_box':   'maybeSearch',
-      'search #search_box':    'search',
-      'focus #search_box':     'addFocus',
-      'blur #search_box':      'removeFocus',
-      'click .cancel_search':  'cancelSearch',
-      'click #login_button':   'login'
-    },
+  events : {
+    'keydown #search_box':   'maybeSearch',
+    'search #search_box':    'search',
+    'focus #search_box':     'addFocus',
+    'blur #search_box':      'removeFocus',
+    'click .cancel_search':  'cancelSearch',
+    'click #login_button':   'login'
+  },
 
-    login : function() { /* ... */ },
-    search : function() { /* ... */ },
-    cancelSearch : function() { /* ... */ },
-    maybeSearch : function() { /* ... */ },
-    addFocus : function() { /* ... */ },
-    removeFocus : function() { /* ... */ }
-  });
+  login : function() { /* ... */ },
+  search : function() { /* ... */ },
+
+});
       </code> </pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js">Source</a>
     </div>
 
     <div class="step slide" data-x="2380000" data-y="-20000" data-scale="50">
-      <h1>Initialize</h1>
-      <pre><code style="font-size: 0.6em">
-    initialize : function() {
-      dc.ui.notifier      = new dc.ui.Notifier();
-      this.box            = $('#search_box');
-      this.emailInput     = $('#account_email');
-      this.passwordInput  = $('#account_password');
-      _.invoke([this.box, this.emailInput, this.passwordInput], 'placeholder');
-      $(_.bind(this.loadTweets, this));
-    },
-      </code></pre>
-      <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/home/home.js#L18">Source</a>
-    </div>
-
-    <div class="step" data-x="2366000" data-y="-18350" data-scale="3"> </div>
-
-    <div class="step" data-x="2381000" data-y="-17500" data-scale="25"> </div>
-
-    <div class="step slide" data-x="2430000" data-y="-20000" data-scale="50">
       <h1>Constantes</h1>
       <p>En haut en majuscule, facile à repérer.</p>
 
-      <pre style="font-size: 0.4em; line-height: 20px;"><code>
+      <pre><code>
 dc.controllers.Searcher = Backbone.Router.extend({
-
-  // Error messages to display when your search returns no results.
-  NO_RESULTS : {
-    project   : "This project does not contain any documents.",
-    account   : "This account does not have any documents.",
-    group     : "This organization does not have any documents.",
-    related   : "There are no documents related to this document.",
-    published : "This account does not have any published documents.",
-    annotated : "There are no annotated documents.",
-    search    : "Your search did not match any documents.",
-    all       : "There are no documents."
-  },
 
   PAGE_MATCHER  : (/\/p(\d+)$/),
 
   DOCUMENTS_URL : '/search/documents.json',
 
   FACETS_URL    : '/search/facets.json',
+    
       </code></pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/searcher.js">Source</a>
     </div>
-    <div class="step slide" data-x="2480000" data-y="-20000" data-scale="50">
+    <div class="step slide" data-x="2430000" data-y="-20000" data-scale="50">
       <h1>Un objet pour découper notre code</h1>
-      <pre style="font-size: 0.4em; line-height: 25px;"> <code>
+      <pre> <code>
   initialize : function() {
     this.createSubViews();
     this.renderSubViews();
@@ -289,58 +226,41 @@ dc.controllers.Searcher = Backbone.Router.extend({
   renderSubViews : function() {
     var content   = this.$('#content');
     content.append(this.sidebar.render().el);
-    content.append(this.panel.render().el);
-    this.panel.add('document_list', this.documentList.render().el);
-    this.sidebar.add('entities', this.entityList.render().el);
-    // ...
 
     </code> </pre>
     </div>
 
-    <div class="step slide" data-x="2530000" data-y="-20000" data-scale="50">
+    <div class="step slide" data-x="2480000" data-y="-20000" data-scale="50">
       <h1>Pour partager un état</h1>
-      <pre style="font-size: 0.4em; line-height: 25px;"> <code>
+      <pre style="font-size: 0.6em;"> <code>
   initialize : function() {
     _.bindAll(this, '_loadFacetResults');
   }
 
   loadFacet : function(facet) {
     dc.ui.spinner.show();
-    this.currentSearch = $.get(this.FACETS_URL, {q : this.searchBox.value(), facet : facet}, this._loadFacetResults, 'json');
+    this.currentSearch = $.get(
+      this.FACETS_URL, 
+      {q : this.searchBox.value(), facet : facet}, 
+      this._loadFacetResults,
+      'json');
   },
 
-  _loadFacetResults : function(resp) {
-    dc.app.workspace.entityList.mergeFacets(resp.facets, 500, resp.query.total);
-    dc.ui.spinner.hide();
-    this.currentSearch = null;
-  }
-
-  search : function(query, pageNumber, callback) {
-    dc.ui.spinner.show();
-    dc.app.navigation.open('search');
-    if (this.currentSearch) this.currentSearch.abort();
-    // ...
-
+  _loadFacetResults : function(resp) { ... }
       </code> </pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/searcher.js#L210">Source</a>
     </div>
 
 
 
-    <div class="step slide" data-x="2580000" data-y="-20000" data-scale="50">
+    <div class="step slide" data-x="2530000" data-y="-20000" data-scale="50">
       <h1>Pour faire des factories</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre  style="font-size: 0.8em; line-height: 25px;"> <code>
 dc.ui.Dialog = Backbone.View.extend({
 
   options : {
     title       : "Untitled Dialog",
     text        : null,
-    information : null,
-    description : null,
-    choices     : null,
-    password    : false,
-    editor      : false,
-    draggable   : true
   },
 
   // ...
@@ -360,24 +280,18 @@ _.extend(dc.ui.Dialog, {
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/common/dialog.js#L141">Source</a>
     </div>
 
-    <div class="step slide" data-x="2630000" data-y="-20000" data-scale="50">
+    <div class="step slide" data-x="2580000" data-y="-20000" data-scale="50">
       <h1>Pour créer des classes filles</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre> <code>
 dc.ui.ProjectDialog = dc.ui.Dialog.extend({
 
   constructor : function(options) {
-    this.model = options.model;
-    dc.ui.Dialog.call(this, {
-      mode        : 'custom',
-      title       : 'Edit Project'
-    });
+    dc.ui.Dialog.call(/* */);
   },
 
   render : function(noHide) {
-    if (!noHide) $(this.el).hide();
-    dc.ui.Dialog.prototype.render.call(this, {editor : true, information : this.model.statistics()});
-    // ...
-  }
+    dc.ui.Dialog.prototype.render.call(/* */);
+
       </code> </pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/organizer/project_dialog.js">Source</a>
     </div>
@@ -404,29 +318,20 @@ $ grep -R "tab:" .
 
     <div class="step slide" data-x="2650000" data-y="125000" data-scale="50">
       <h1>Un modèle/collection riche en code métier</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre> <code>
 dc.model.Document = Backbone.Model.extend({
 
-  publishAtDate : function() {
-    var date = this.get('publish_at');
-    return date && DateUtils.parseRfc(date);
-  },
+  publishAtDate : function() { /* */ },
 
-  formattedPublishAtDate : function() {
-    var date = this.publishAtDate();
-    return date && (this.formatDay(date) + ' at ' + this.formatTime(date));
-  },
+  formattedPublishAtDate : function() {/* */},
 
-// ...
+
 
 dc.model.DocumentSet = Backbone.Collection.extend({
 
   model    : dc.model.Document,
 
-  downloadSelectedFullText : function() {
-    if (this.selectedCount <= 1) return this.selected()[0].openText();
-    dc.app.download('/download/' + this.selectedIds().join('/') + '/document_text.zip');
-  },
+  downloadSelectedFullText : function() {/* */},
 
       </code> </pre>
 <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/model/documents.js#L91">Source</a>
@@ -434,7 +339,7 @@ dc.model.DocumentSet = Backbone.Collection.extend({
 
     <div class="step slide" data-x="2700000" data-y="125000" data-scale="50">
       <h1>Un modèle pour synchroniser l'état des ressources</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre style="font-size: 0.6em; line-height: 25px;"> <code>
   // Fetch all of the documents page mentions for a given search query.
   fetchMentions : function(query) {
     $.getJSON(this.url() + '/mentions', {q: query}, _.bind(function(resp) {
@@ -461,7 +366,7 @@ dc.model.DocumentSet = Backbone.Collection.extend({
 
     <div class="step slide" data-x="2750000" data-y="125000" data-scale="50">
       <h1>Ce qui entraine une réactualisation des vues</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre style="font-size: 0.6em; line-height: 25px;"> <code>
 dc.ui.Document = Backbone.View.extend({
 
   constructor : function(options) {
@@ -482,25 +387,21 @@ dc.ui.Document = Backbone.View.extend({
     this.render();
   },
 
-  _setSelected : function() {
-    var sel = this.model.get('selected');
-    this.setMode(sel ? 'is' : 'not', 'selected');
-  }
       </code> </pre>
     </div>
 
     <div class="step slide" data-x="2800000" data-y="125000" data-scale="50">
       <h1>Un model constitué de sous-model</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre> <code>
 dc.model.Document = Backbone.Model.extend({
 
   constructor : function(attrs, options) {
-    // ...
     this.notes = new dc.model.NoteSet();
     this.notes.url = function() {
       return '/documents/' + id + '/annotations';
     };
-    if (this.get('annotations')) this.notes.reset(this.get('annotations'));
+    if (this.get('annotations')) 
+       this.notes.reset(this.get('annotations'));
       </code> </pre>
     </div>
 
@@ -513,7 +414,7 @@ dc.model.Document = Backbone.Model.extend({
 
     <div class="step slide" data-x="2650000" data-y="195000" data-scale="50">
       <h1>La structure des fichiers</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre> <code>
 ├── application.js
 ├── app
 ├── lib
@@ -532,7 +433,7 @@ dc.model.Document = Backbone.Model.extend({
 
     <div class="step slide" data-x="2700000" data-y="195000" data-scale="50">
       <h1>Un namespace commun</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre> <code>
 (function() {
   window.dc = {};
   dc.controllers = {};
@@ -546,7 +447,7 @@ dc.model.Document = Backbone.Model.extend({
 
     <div class="step slide" data-x="2750000" data-y="195000" data-scale="50">
       <h1>Augmenté par chaque fichier</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre> <code>
 dc.controllers.Workspace = Backbone.Router.extend({
   // ...
 });
@@ -556,7 +457,7 @@ dc.controllers.Workspace = Backbone.Router.extend({
 
     <div class="step slide" data-x="2800000" data-y="195000" data-scale="50">
       <h1>Contenant les classes et les instances</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre> <code>
   createSubViews : function() {
     dc.app.paginator  = new dc.ui.Paginator();
     dc.app.navigation = new dc.ui.Navigation();
@@ -598,7 +499,7 @@ dc.controllers.Workspace = Backbone.Router.extend({
 
     <div class="step slide" data-x="2900000" data-y="195000" data-scale="50">
       <h1>Afin d'intéragir plus simplement entre module.</h1>
-      <pre style="font-size: 0.5em; line-height: 20px;"> <code>
+      <pre style="font-size: 0.6em; line-height: 25px;"> <code>
 dc.ui.Document = Backbone.View.extend({
 
   // ...
@@ -615,12 +516,6 @@ dc.ui.Document = Backbone.View.extend({
     dc.app.searcher.addToSearch('source', this.model.get('source').replace(/"/g, '\\"'));
   },
 
-  searchData : function(e) {
-    var el    = $(e.currentTarget);
-    var key   = el.find('.data_key').text().replace(/:$/, '');
-    var value = el.find('.data_value').text();
-    dc.app.searcher.toggleSearch(key, value);
-  },
 });
       </code> </pre>
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/ui/documents/document.js">Source</a>
@@ -658,8 +553,7 @@ dc.ui.Menu = Backbone.View.extend({
       <a href="http://ricostacruz.com/backbone-patterns/#jst_templates">Backbone patterns</a>
     </div>
 
-    <div class="step" data-x="2600000" data-y="0" data-scale="1000">
-    </div>
+
 
     <div class="step" data-x="4500000" data-y="0" data-scale="1000" data-z="-100000" data-rotate-x="20" data-rotate-y="10">
       <h1>Des questions ?</h1>
