@@ -21,13 +21,12 @@
     </div>
 
     <div id="intro" class="step" data-x="990000" data-y="-1000000" data-scale="10" data-rotate="-90">
-      <h1>Document Cloud</h1>
-      <h2>Lecture commentée* des sources</h2>
-	  <small>* troll</small>
+      <h1>Backbonist</h1>
+      <h2>Learning Backbone by looking at DocumentCloud sources</h2>
     </div>
 
     <div class="step" data-x="1000000" data-y="-1000000" data-scale="10" >
-      <h1>Pourquoi Backbone est important ?</h1>
+      <h1>Why Backbone is important?</h1>
     </div>
 
     <div class="step" data-x="1000000" data-y="-1000000" data-scale="1000">
@@ -36,7 +35,7 @@
     </div>
 
     <div class="step" data-x="1000000" data-y="0" data-scale="1000">
-      <h1>Pourquoi DocumentCloud ?</h1>
+      <h1>Why DocumentCloud ?</h1>
       <h2>
         <img src="https://twimg0-a.akamaihd.net/profile_images/1185870726/gravatar.jpg" alt="" />
         <div style="display:inline-block">
@@ -50,13 +49,13 @@
 
 
     <div class="step" data-x="2500000" data-y="0" data-scale="1000">
-      <h1>Structuration de Backbone</h1>
+      <h1>Organizing a Backbone Application</h1>
       <ul>
-        <li>Vues</li>
+        <li>Views</li>
         <li>Objets</li>
-        <li>Evenements</li>
-        <li>Modèles et Collections</li>
-        <li>Structuration du code</li>
+        <li>Events</li>
+        <li>Models / Collections</li>
+        <li>Organizing your code</li>
       </ul>
     </div>
 
@@ -84,10 +83,10 @@ $(function() {
 
 
     <div class="step slide" data-x="2350000" data-y="-90000" data-scale="50">
-      <h1>Découper le DOM en plusieurs vues</h1>
-      <p> Par défaut non attaché au DOM.  </p>
+      <h1>Limit view responsability on the DOM</h1>
+      <p>`el`: by default not attached to the DOM.  </p>
 
-      <p> Mais on peut l'attaché à l'initialisation </p>
+      <p>But we can attach it at init </p>
       <pre>
         <code>
           el : document.body
@@ -98,8 +97,8 @@ $(function() {
     </div>
 
     <div class="step slide" data-x="2400000" data-y="-90000" data-scale="50">
-      <h1>Découper le DOM en plusieurs vues</h1>
-      <p>Ou plus tard</p>
+      <h1>Limit view responsability on the DOM</h1>
+      <p>Or later</p>
       <pre><code>
 this.panel.add('search_box', 
   dc.app.searchBox.render().el);
@@ -127,7 +126,7 @@ this.sidebar.add('entities',
     </div>
     
     <div class="step slide" data-x="2450000" data-y="-90000" data-scale="50">
-      <h1>Et s'y tenir</h1>
+      <h1>And never jQuery directly</h1>
       <pre><code>
 
     this.$('.account_list_content')
@@ -138,7 +137,7 @@ this.sidebar.add('entities',
     </div>
 
     <div class="step slide" data-x="2500000" data-y="-90000" data-scale="50">
-      <h1>Uniformiser les interactions avec l'utilisateur</h1>
+      <h1>A convention for user interactions</h1>
       <pre><code>
 events : {
   'keydown #search_box':   'maybeSearch',
@@ -153,7 +152,7 @@ events : {
     </div>
 
     <div class="step slide" data-x="2550000" data-y="-90000" data-scale="50">
-      <h1>Une machine à état non persisté</h1>
+      <h1>A state machine not persisted</h1>
       <pre><code>
 this.setMode('is', 'open');
 this.setMode('not', 'open');
@@ -169,7 +168,7 @@ this.setMode('not', 'active');
     </div>
 
     <div class="step slide" data-x="2330000" data-y="-20000" data-scale="50">
-      <h1>Pour utiliser le sucre syntaxique de Backbone.</h1>
+      <h1>Backbone Views are sugar.</h1>
       <pre> <code>
 window.HomePage = Backbone.View.extend({
 
@@ -191,8 +190,8 @@ window.HomePage = Backbone.View.extend({
     </div>
 
     <div class="step slide" data-x="2380000" data-y="-20000" data-scale="50">
-      <h1>Constantes</h1>
-      <p>En haut en majuscule, facile à repérer.</p>
+      <h1>Constants</h1>
+      <p>At the beginning in upper case, easy to see.</p>
 
       <pre><code>
 dc.controllers.Searcher = Backbone.Router.extend({
@@ -207,7 +206,7 @@ dc.controllers.Searcher = Backbone.Router.extend({
       <a href="https://github.com/lyonjs/documentcloud/blob/master/public/javascripts/app/searcher.js">Source</a>
     </div>
     <div class="step slide" data-x="2430000" data-y="-20000" data-scale="50">
-      <h1>Un objet pour découper notre code</h1>
+      <h1>Split your code</h1>
       <pre> <code>
   initialize : function() {
     this.createSubViews();
@@ -231,7 +230,7 @@ dc.controllers.Searcher = Backbone.Router.extend({
     </div>
 
     <div class="step slide" data-x="2480000" data-y="-20000" data-scale="50">
-      <h1>Pour partager un état</h1>
+      <h1>Share a state</h1>
       <pre style="font-size: 0.6em;"> <code>
   initialize : function() {
     _.bindAll(this, '_loadFacetResults');
@@ -254,7 +253,7 @@ dc.controllers.Searcher = Backbone.Router.extend({
 
 
     <div class="step slide" data-x="2530000" data-y="-20000" data-scale="50">
-      <h1>Pour faire des factories</h1>
+      <h1>Do factories</h1>
       <pre  style="font-size: 0.8em; line-height: 25px;"> <code>
 dc.ui.Dialog = Backbone.View.extend({
 
@@ -281,7 +280,7 @@ _.extend(dc.ui.Dialog, {
     </div>
 
     <div class="step slide" data-x="2580000" data-y="-20000" data-scale="50">
-      <h1>Pour créer des classes filles</h1>
+      <h1>Extend your own classes</h1>
       <pre> <code>
 dc.ui.ProjectDialog = dc.ui.Dialog.extend({
 
@@ -299,8 +298,8 @@ dc.ui.ProjectDialog = dc.ui.Dialog.extend({
     <div class="step" data-x="2600000" data-y="0" data-scale="1000">
     </div>
 
-    <div class="step slide" data-x="2450000" data-y="50000" data-scale="50">
-      <h1>Pour découpler son code</h1>
+    <div class="step slide" data-x="2330000" data-y="50000" data-scale="50">
+      <h1>Events for low coupling</h1>
       <pre style="font-size: 0.5em; line-height: 20px;"> <code>
 $ grep -R "tab:" .
 ./ui/workspace/navigation.js:    if (!(silent === true)) this.trigger('tab:' + name);
@@ -317,7 +316,7 @@ $ grep -R "tab:" .
     </div>
 
     <div class="step slide" data-x="2650000" data-y="125000" data-scale="50">
-      <h1>Un modèle/collection riche en code métier</h1>
+      <h1>Models/Collections with the application logic</h1>
       <pre> <code>
 dc.model.Document = Backbone.Model.extend({
 
@@ -338,7 +337,7 @@ dc.model.DocumentSet = Backbone.Collection.extend({
     </div>
 
     <div class="step slide" data-x="2700000" data-y="125000" data-scale="50">
-      <h1>Un modèle pour synchroniser l'état des ressources</h1>
+      <h1>Models synchronized with our server</h1>
       <pre style="font-size: 0.6em; line-height: 25px;"> <code>
   // Fetch all of the documents page mentions for a given search query.
   fetchMentions : function(query) {
@@ -365,7 +364,7 @@ dc.model.DocumentSet = Backbone.Collection.extend({
     </div>
 
     <div class="step slide" data-x="2750000" data-y="125000" data-scale="50">
-      <h1>Ce qui entraine une réactualisation des vues</h1>
+      <h1>Updating our views.</h1>
       <pre style="font-size: 0.6em; line-height: 25px;"> <code>
 dc.ui.Document = Backbone.View.extend({
 
@@ -391,7 +390,7 @@ dc.ui.Document = Backbone.View.extend({
     </div>
 
     <div class="step slide" data-x="2800000" data-y="125000" data-scale="50">
-      <h1>Un model constitué de sous-model</h1>
+      <h1>Nested Models</h1>
       <pre> <code>
 dc.model.Document = Backbone.Model.extend({
 
@@ -406,14 +405,14 @@ dc.model.Document = Backbone.Model.extend({
     </div>
 
     <div class="step slide" data-x="2850000" data-y="125000" data-scale="50">
-      <h1>Surtout du READ</h1>
+      <h1>Mostly reads in DocumentCloud</h1>
     </div>
 
     <div class="step" data-x="2600000" data-y="0" data-scale="1000">
     </div>
 
     <div class="step slide" data-x="2650000" data-y="195000" data-scale="50">
-      <h1>La structure des fichiers</h1>
+      <h1>Organizing your files</h1>
       <pre> <code>
 ├── application.js
 ├── app
@@ -432,7 +431,7 @@ dc.model.Document = Backbone.Model.extend({
     </div>
 
     <div class="step slide" data-x="2700000" data-y="195000" data-scale="50">
-      <h1>Un namespace commun</h1>
+      <h1>A shared namespace.</h1>
       <pre> <code>
 (function() {
   window.dc = {};
@@ -446,7 +445,7 @@ dc.model.Document = Backbone.Model.extend({
     </div>
 
     <div class="step slide" data-x="2750000" data-y="195000" data-scale="50">
-      <h1>Augmenté par chaque fichier</h1>
+      <h1>Extended by each files</h1>
       <pre> <code>
 dc.controllers.Workspace = Backbone.Router.extend({
   // ...
@@ -456,7 +455,7 @@ dc.controllers.Workspace = Backbone.Router.extend({
     </div>
 
     <div class="step slide" data-x="2800000" data-y="195000" data-scale="50">
-      <h1>Contenant les classes et les instances</h1>
+      <h1>Containing classes and instances</h1>
       <pre> <code>
   createSubViews : function() {
     dc.app.paginator  = new dc.ui.Paginator();
@@ -470,7 +469,7 @@ dc.controllers.Workspace = Backbone.Router.extend({
     </div>
 
     <div class="step slide" data-x="2850000" data-y="195000" data-scale="50">
-      <h1>Initialisé à un seul endroit</h1>
+      <h1>Initialized in one file</h1>
       <pre style="font-size: 0.5em; line-height: 20px;"> <code>
 dc.controllers.Workspace = Backbone.Router.extend({
   // ...
@@ -498,7 +497,7 @@ dc.controllers.Workspace = Backbone.Router.extend({
     </div>
 
     <div class="step slide" data-x="2900000" data-y="195000" data-scale="50">
-      <h1>Afin d'intéragir plus simplement entre module.</h1>
+      <h1>Communicate easily between views.</h1>
       <pre style="font-size: 0.6em; line-height: 25px;"> <code>
 dc.ui.Document = Backbone.View.extend({
 
@@ -522,7 +521,7 @@ dc.ui.Document = Backbone.View.extend({
     </div>
 
     <div class="step slide" data-x="2950000" data-y="195000" data-scale="50">
-      <h1>Des templates compilés</h1>
+      <h1>Compiled templates</h1>
       <pre style="font-size: 0.5em; line-height: 20px;"> <code>
 dc.ui.Menu = Backbone.View.extend({
 
@@ -556,7 +555,8 @@ dc.ui.Menu = Backbone.View.extend({
 
 
     <div class="step" data-x="4500000" data-y="0" data-scale="1000" data-z="-100000" data-rotate-x="20" data-rotate-y="10">
-      <h1>Des questions ?</h1>
+      <h1>Try <a href="https://github.com/Backbonist/Backbonist">Backbonist</a></h1>
+      <h2>Follow me: <a href="https://twitter.com/#!/Filirom1">@Filirom1</a></h2>
     </div>
 </div>
 
